@@ -68,7 +68,7 @@ declare module 'react-navigation' {
 
   export type ScreenProps = {
     [key: string]: any;
-  }
+  };
 
   // @todo - any..
   export function getActiveChildNavigationOptions<S>(
@@ -585,7 +585,9 @@ declare module 'react-navigation' {
     tabBarLabel?:
       | string
       | React.ReactElement<any>
-      | ((options: TabBarLabelProps) => React.ReactElement<any> | string | null);
+      | ((
+          options: TabBarLabelProps
+        ) => React.ReactElement<any> | string | null);
     tabBarVisible?: boolean;
     tabBarTestIDProps?: { testID?: string; accessibilityLabel?: string };
   }
@@ -664,7 +666,9 @@ declare module 'react-navigation' {
     lastState: NavigationState | null | undefined;
   }
 
-  export type NavigationEventCallback = (payload: NavigationEventPayload) => void;
+  export type NavigationEventCallback = (
+    payload: NavigationEventPayload
+  ) => void;
 
   export interface NavigationEventSubscription {
     remove: () => void;
@@ -1204,7 +1208,9 @@ declare module 'react-navigation' {
     ): NavigationPopToTopAction;
 
     function push(options: NavigationPushActionPayload): NavigationPushAction;
-    function reset(options: NavigationResetActionPayload): NavigationResetAction;
+    function reset(
+      options: NavigationResetActionPayload
+    ): NavigationResetAction;
 
     function replace(
       options: NavigationReplaceActionPayload
@@ -1368,11 +1374,11 @@ declare module 'react-navigation' {
     static HEIGHT: number;
   }
 
-  export type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
+  // export type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 
-  export type InferProps<
-    T extends React.ComponentType<any>
-  > = T extends React.ComponentType<infer P> ? P : never;
+  // export type InferProps<
+  //   T extends React.ComponentType<any>
+  // > = T extends React.ComponentType<infer P> ? P : never;
 
   export interface NavigationOrientationInjectedProps {
     isLandscape: boolean;
@@ -1443,25 +1449,29 @@ declare module 'react-navigation' {
     }
   >;
 
-  /**
-   * SafeAreaView Component
-   */
-  export type SafeAreaViewForceInsetValue = 'always' | 'never';
-  export interface SafeAreaViewProps extends ViewProps {
-    forceInset?: {
-      top?: SafeAreaViewForceInsetValue;
-      bottom?: SafeAreaViewForceInsetValue;
-      left?: SafeAreaViewForceInsetValue;
-      right?: SafeAreaViewForceInsetValue;
-      horizontal?: SafeAreaViewForceInsetValue;
-      vertical?: SafeAreaViewForceInsetValue;
-    };
-    children?: React.ReactNode;
-  }
+  // /**
+  //  * SafeAreaView Component
+  //  */
+  // export type SafeAreaViewForceInsetValue = 'always' | 'never';
+  // export interface SafeAreaViewProps extends ViewProps {
+  //   forceInset?: {
+  //     top?: SafeAreaViewForceInsetValue;
+  //     bottom?: SafeAreaViewForceInsetValue;
+  //     left?: SafeAreaViewForceInsetValue;
+  //     right?: SafeAreaViewForceInsetValue;
+  //     horizontal?: SafeAreaViewForceInsetValue;
+  //     vertical?: SafeAreaViewForceInsetValue;
+  //   };
+  //   children?: React.ReactNode;
+  // }
 
-  export const SafeAreaView: React.ComponentClass<SafeAreaViewProps>;
+  // export const SafeAreaView: React.ComponentClass<SafeAreaViewProps>;
 
-  export const NavigationContext: React.Context<NavigationScreenProp<NavigationRoute>>;
+  export const NavigationContext: React.Context<
+    NavigationScreenProp<NavigationRoute>
+  >;
   export const StackGestureContext: React.Context<React.Ref<PanGestureHandler>>;
-  export const DrawerGestureContext: React.Context<React.Ref<PanGestureHandler>>;
+  export const DrawerGestureContext: React.Context<
+    React.Ref<PanGestureHandler>
+  >;
 }
